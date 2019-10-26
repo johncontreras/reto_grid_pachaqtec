@@ -1,0 +1,109 @@
+*,*::before,*::after{margin:0;padding:0;}
+
+.grid{
+  margin-top:1rem;
+  display:grid;
+  grid-template-columns: repeat(auto-fill,189px);
+  grid-template-rows: repeat(32,150px);
+  width:100%;
+  justify-content:center;
+  grid-gap:1rem;
+  
+  &-item{
+
+     border-radius:7px;
+     transition: all .5s;
+     position:relative;
+     
+    &:before{
+      content:'';
+      width:100%;
+      height:100%;
+      background:#f2f2f2;
+      position:absolute;
+      border-radius:7px;
+      transform:scale(.8);
+      opacity:0;
+      transition:all .2s;
+    }
+     
+    
+    &:hover{
+      &:before{
+        transform:scale(1);
+        opacity:1;
+      }
+      .grid-img:after{
+        opacity:.2;
+      }
+    }
+  }
+  
+  &-image{
+    padding:.5rem;
+    height:calc(100% - 3rem);
+    
+    
+
+  }
+  &-img{
+    width:100%;
+    height:100%;
+    background-size:cover;
+    background-position:center;
+    border-radius:7px;
+    position:relative;
+    
+    &:after{
+      content:'';
+      width:100%;
+      height:100%;
+      background:black;
+      position:absolute;
+      border-radius:7px;
+      opacity:0;
+    }
+  }
+  &-img-1 {
+    background-image:url('https://i.pinimg.com/564x/8f/bc/b8/8fbcb8858d41e819922f1b8812658363.jpg');
+  }
+  &-img-2 {
+    background-image:url('https://i.pinimg.com/564x/8f/e3/f9/8fe3f96f2ccf33301bef919af54e12c9.jpg');
+  }
+  &-img-3 {
+    background-image:url('https://i.pinimg.com/564x/38/5c/5a/385c5aa195d975dfaf139af25c9ade72.jpg');
+  }
+  &-img-4 {
+    background-image:url('https://i.pinimg.com/564x/2f/83/af/2f83af46c0826a414636e0b9c58098d1.jpg');
+  }
+
+  &-btn{
+    width:100%;
+    height:2rem;
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    color:#8e8e8e;
+    position:relative;
+    right:.3rem;
+    bottom:.3rem;
+    & i{
+      padding:.3rem;
+      border-radius:50%;
+      transition:all .5s;
+      
+      
+      &:hover{
+        background:#e4e4e4;
+      }
+    }
+    
+  }
+  
+  @for $i from 1 through 4{
+    &-#{$i}{
+      grid-row-end: span #{$i};
+    }
+  }
+  
+}
